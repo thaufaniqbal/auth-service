@@ -28,6 +28,6 @@ public class AuthController {
 
     @GetMapping("/hi")
     public ResponseEntity<ApiResponseDTO<Object>> hi() {
-        return ApiResponseDTO.toResponseEntity(HttpStatus.OK, "hi");
+        return ApiResponseDTO.toResponseEntity(HttpStatus.OK, "hi, this is auth-service");
     }
 }
