@@ -25,4 +25,9 @@ public class AuthController {
     public ResponseEntity<ApiResponseDTO<Object>> getMenuUserInternal(@PathVariable UUID userId) {
         return ApiResponseDTO.toResponseEntity(HttpStatus.OK, menuService.getMenuUserInternal(userId));
     }
+
+    @GetMapping("/hi")
+    public ResponseEntity<ApiResponseDTO<Object>> hi() {
+        return ApiResponseDTO.toResponseEntity(HttpStatus.OK, "hi");
+    }
 }
