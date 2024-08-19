@@ -22,7 +22,7 @@ public class AuthController {
         return ApiResponseDTO.toResponseEntity(HttpStatus.OK, authService.loginInternal(input));
     }
     @GetMapping("/menu-internal/{userId}")
-    public ResponseEntity<ApiResponseDTO<Object>> loginInternal(@PathVariable UUID userId) {
+    public ResponseEntity<ApiResponseDTO<Object>> getMenuUserInternal(@PathVariable UUID userId) {
         return ApiResponseDTO.toResponseEntity(HttpStatus.OK, menuService.getMenuUserInternal(userId));
     }
 }
