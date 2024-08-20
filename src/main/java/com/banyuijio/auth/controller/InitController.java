@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class InitController {
     private final InitService initService;
 
-    @PostMapping("/login-internal")
+    @PostMapping("/login-internal/{pass}")
     public ResponseEntity<ApiResponseDTO<Object>> loginInternal(@PathVariable String pass) {
         return ApiResponseDTO.toResponseEntity(HttpStatus.OK, initService.init(pass));
     }
