@@ -1,5 +1,6 @@
 package com.banyuijio.auth.dto.menu;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import java.util.List;
@@ -24,5 +25,7 @@ public class MenuOutput {
         private Integer seq;
         private String menuTitle;
         private String location;
+        @JsonIgnore
+        private int crudType;
     }
 }

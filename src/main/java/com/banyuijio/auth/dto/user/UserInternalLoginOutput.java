@@ -13,4 +13,5 @@ import java.util.UUID;
 @Getter
 public class UserInternalLoginOutput {
     private UUID userId;
+    private String loginId;
 }
