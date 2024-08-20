@@ -27,8 +27,18 @@ public class MenuOutput {
         private UUID menuId;
         private Integer seq;
         private String menuTitle;
-        private String path;
-        @JsonIgnore
-        private int crudType;
+        private List<ChildMenu> childMenu;
+        @AllArgsConstructor
+        @NoArgsConstructor
+        @Setter
+        @Getter
+        public static class ChildMenu {
+            private UUID childId;
+            private Integer seq;
+            private String childTitle;
+            private String path;
+            @JsonIgnore
+            private int crudType;
+        }
     }
 }

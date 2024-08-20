@@ -83,6 +83,24 @@ public class MenuServiceImpl implements MenuService {
         MenuOutput.Menu result = new MenuOutput.Menu();
         result.setMenuId(menu.getMenuId());
         result.setMenuTitle(menu.getTittle());
+        result.setSeq(menu.getSeq());
+        List<Menu> menuForChild = menuRepository.findAllByParentId(menu.getMenuId());
+        List<MenuOutput.Menu.ChildMenu> childMenus = buildChildMenus(menuForChild);
+        result.setChildMenu(childMenus);
+        return result;
+    }
+    private List<MenuOutput.Menu.ChildMenu> buildChildMenus(List<Menu> menuForChild){
+        List<MenuOutput.Menu.ChildMenu> results = new ArrayList<>();
+        for (Menu menu : menuForChild){
+            MenuOutput.Menu.ChildMenu childMenu = buildChildMenu(menu);
+            results.add(childMenu);
+        }
+        return results;
+    }
+    private MenuOutput.Menu.ChildMenu buildChildMenu (Menu menu){
+        MenuOutput.Menu.ChildMenu result = new MenuOutput.Menu.ChildMenu();
+        result.setChildId(menu.getMenuId());
+        result.setChildTitle(menu.getTittle());
         result.setPath(menu.getPath());
         result.setSeq(menu.getSeq());
         result.setCrudType(menu.getCrudType());
@@ -119,12 +137,17 @@ public class MenuServiceImpl implements MenuService {
     private void setCrudPermission(List<MenuOutput> menuOutputs, boolean isEnabled, int crudType) {
         if (isEnabled) {
             for (MenuOutput menuOutput : menuOutputs) {
-                removeMenuByRole(menuOutput.getMenuList(), crudType);
+                setCrud(menuOutput.getMenuList(), crudType);
             }
         }
     }
 
-    private void removeMenuByRole(List<MenuOutput.Menu> menuList, int crudType) {
+    private void setCrud(List<MenuOutput.Menu> menuList,int crudType) {
+        for (MenuOutput.Menu menuOutput : menuList) {
+            removeMenuByRole(menuOutput.getChildMenu(), crudType);
+        }
+    }
+    private void removeMenuByRole(List<MenuOutput.Menu.ChildMenu> menuList, int crudType) {
         menuList.removeIf(menu -> menu.getCrudType() == crudType);
     }
 }
