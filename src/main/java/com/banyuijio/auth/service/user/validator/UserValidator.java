@@ -18,4 +18,19 @@ public class UserValidator {
             throw new HttpStatusException(HttpStatusCode.UNAUTHORIZED);
         }
     }
+    public void validateExistsUserName(String userName){
+        if (userInternalRepository.existsByUsernameIgnoreCase(userName)){
+            throw new HttpStatusException(HttpStatusCode.DATA_ALREADY_EXIST, "userName: "+ userName);
+        }
+    }
+    public void validateNotExistsUserName(String userName){
+        if (!userInternalRepository.existsByUsernameIgnoreCase(userName)){
+            throw new HttpStatusException(HttpStatusCode.DATA_NOT_FOUND_FOR, "userName: "+ userName);
+        }
+    }
+    public void validateLogin(String userName){
+        if (!userInternalRepository.existsByUsernameIgnoreCase(userName)){
+            throw new HttpStatusException(HttpStatusCode.UNAUTHORIZED);
+        }
+    }
 }
