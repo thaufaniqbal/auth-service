@@ -83,7 +83,7 @@ public class MenuServiceImpl implements MenuService {
         MenuOutput.Menu result = new MenuOutput.Menu();
         result.setMenuId(menu.getMenuId());
         result.setMenuTitle(menu.getTittle());
-        result.setLocation(menu.getLocation());
+        result.setPath(menu.getPath());
         result.setSeq(menu.getSeq());
         result.setCrudType(menu.getCrudType());
         return result;

@@ -21,6 +21,6 @@ public class Menu {
     private UUID parentId;
     private int seq;
     private String tittle;
-    private String location;
+    private String path;
     private int crudType;
 }
