@@ -22,6 +22,7 @@ public class RoleUserServiceImpl implements RoleUserService {
         roleValidator.validateFunctionAndUsersUpdate(input.getRoleFunctionId(), loginId);
         RoleUser result = new RoleUser();
         if (Objects.nonNull(roleId)){
+            roleValidator.validateRoleId(roleId);
             result.setRoleId(roleId);
             if (!input.getRoleName().isEmpty()){
                 roleValidator.validateRoleName(input.getRoleName());

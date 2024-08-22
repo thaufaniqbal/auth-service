@@ -2,6 +2,7 @@ package com.banyuijio.auth.service.user.validator;
 
 import com.banyuijio.auth.enums.HttpStatusCode;
 import com.banyuijio.auth.exception.HttpStatusException;
+import com.banyuijio.auth.repository.UserGroupRepository;
 import com.banyuijio.auth.repository.UserInternalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Component
 @RequiredArgsConstructor
 public class UserValidator {
+    private final UserGroupRepository userGroupRepository;
     private final UserInternalRepository userInternalRepository;
 
     public void validateUserInternalId(UUID userId){
@@ -31,6 +33,11 @@ public class UserValidator {
     public void validateLogin(String userName){
         if (!userInternalRepository.existsByUsernameIgnoreCase(userName)){
             throw new HttpStatusException(HttpStatusCode.UNAUTHORIZED);
+        }
+    }
+    public void validateUserGroupName(String userGroupName){
+        if (userGroupRepository.exitsByUserGroupNameIgnoreCase(userGroupName)){
+            throw new HttpStatusException(HttpStatusCode.DATA_ALREADY_EXIST, "userGroupName: "+ userGroupName);
         }
     }
 }

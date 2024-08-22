@@ -26,7 +26,6 @@ public class RoleValidator extends GlobalValidator {
     private final UserInternalRepository userInternalRepository;
     private final UserGroupRepository userGroupRepository;
     private final RoleFunctionRepository roleFunctionRepository;
-
     private final RoleFunctionRepository functionRepository;
     private final RoleUserRepository roleUserRepository;
     private final UserValidator userValidator;
@@ -76,6 +75,19 @@ public class RoleValidator extends GlobalValidator {
 
     public void validateFunctionAndUsersUpdate(UUID roleFunctionId, String loginId){
         RoleFunction roleFunction = roleFunctionRepository.findByRoleFunctionId(roleFunctionId);
+        if (roleFunction.getSuperUser() == BooleanStatus.YES.getCode()){
+            validateSuperUser(loginId);
+        }
+    }
+
+    public void validateRoleId(UUID roleId){
+        if (!roleUserRepository.existsByRoleId(roleId)){
+            throw new HttpStatusException(HttpStatusCode.DATA_NOT_FOUND_FOR, "roleUser");
+        }
+    }
+    public void validateRoleAndUsersUpdate(UUID roleId, String loginId){
+        RoleUser roleUser = roleUserRepository.findByRoleId(roleId);
+        RoleFunction roleFunction = roleFunctionRepository.findByRoleFunctionId(roleUser.getRoleFunctionId());
         if (roleFunction.getSuperUser() == BooleanStatus.YES.getCode()){
             validateSuperUser(loginId);
         }
