@@ -3,7 +3,7 @@ package com.banyuijio.auth.service.role.user;
 import com.banyuijio.auth.dto.role.user.RoleUserCreateInput;
 import com.banyuijio.auth.entity.RoleUser;
 import com.banyuijio.auth.repository.RoleUserRepository;
-import com.banyuijio.auth.service.role.validate.RoleValidator;
+import com.banyuijio.auth.service.role.validator.RoleValidator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

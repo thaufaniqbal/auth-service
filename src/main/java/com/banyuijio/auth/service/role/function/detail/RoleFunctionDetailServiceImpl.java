@@ -2,7 +2,7 @@ package com.banyuijio.auth.service.role.function.detail;
 
 import com.banyuijio.auth.dto.role.function.RoleFunctionDetailOutput;
 import com.banyuijio.auth.repository.RoleFunctionRepository;
-import com.banyuijio.auth.service.role.validate.RoleValidator;
+import com.banyuijio.auth.service.role.validator.RoleValidator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

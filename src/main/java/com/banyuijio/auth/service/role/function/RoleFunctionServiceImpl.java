@@ -4,7 +4,7 @@ import com.banyuijio.auth.dto.role.function.RoleFunctionCreateInput;
 import com.banyuijio.auth.entity.RoleFunction;
 import com.banyuijio.auth.enums.BooleanStatus;
 import com.banyuijio.auth.repository.RoleFunctionRepository;
-import com.banyuijio.auth.service.role.validate.RoleValidator;
+import com.banyuijio.auth.service.role.validator.RoleValidator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

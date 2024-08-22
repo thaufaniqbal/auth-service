@@ -1,4 +1,4 @@
-package com.banyuijio.auth.service.role.validate;
+package com.banyuijio.auth.service.role.validator;
 
 import com.banyuijio.auth.dto.role.function.RoleFunctionCreateInput;
 import com.banyuijio.auth.dto.role.user.RoleUserCreateInput;

@@ -3,7 +3,7 @@ package com.banyuijio.auth.service.user.group;
 import com.banyuijio.auth.dto.user.group.UserGroupCreateInput;
 import com.banyuijio.auth.entity.UserGroup;
 import com.banyuijio.auth.repository.UserGroupRepository;
-import com.banyuijio.auth.service.role.validate.RoleValidator;
+import com.banyuijio.auth.service.role.validator.RoleValidator;
 import com.banyuijio.auth.service.user.validator.UserValidator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
