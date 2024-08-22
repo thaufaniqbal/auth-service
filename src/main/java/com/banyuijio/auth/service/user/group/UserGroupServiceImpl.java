@@ -9,12 +9,17 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserGroupServiceImpl implements UserGroupService {
     @Override
-    public UserGroup createUserGroup(UserGroupCreateInput input) {
+    public UserGroup buildUserGroup(UserGroupCreateInput input) {
         return null;
     }
 
     @Override
-    public void createUserGroup(UserGroup userGroup) {
+    public void build(UserGroup userGroup) {
+
+    }
+
+    @Override
+    public void buildUserGroup(UserGroup userGroup) {
 
     }
 }

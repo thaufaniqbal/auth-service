@@ -4,6 +4,7 @@ import com.banyuijio.auth.dto.user.group.UserGroupCreateInput;
 import com.banyuijio.auth.entity.UserGroup;
 
 public interface UserGroupService {
-    UserGroup createUserGroup(UserGroupCreateInput input);
-    void createUserGroup(UserGroup userGroup);
+    UserGroup buildUserGroup(UserGroupCreateInput input);
+    void build (UserGroup userGroup);
+    void buildUserGroup(UserGroup userGroup);
 }
