@@ -19,7 +19,7 @@ public class RoleUserServiceImpl implements RoleUserService {
     @Override
     public RoleUser createRoleUser(RoleUserCreateInput input, UUID roleId, String loginId) {
         roleValidator.validate(input);
-        roleValidator.validateSuperUser(loginId);
+        roleValidator.validateFunctionAndUsersUpdate(input.getRoleFunctionId(), loginId);
         RoleUser result = new RoleUser();
         if (Objects.nonNull(roleId)){
             result.setRoleId(roleId);

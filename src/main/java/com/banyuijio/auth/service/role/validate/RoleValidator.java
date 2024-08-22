@@ -74,4 +74,10 @@ public class RoleValidator extends GlobalValidator {
         }
     }
 
+    public void validateFunctionAndUsersUpdate(UUID roleFunctionId, String loginId){
+        RoleFunction roleFunction = roleFunctionRepository.findByRoleFunctionId(roleFunctionId);
+        if (roleFunction.getSuperUser() == BooleanStatus.YES.getCode()){
+            validateSuperUser(loginId);
+        }
+    }
 }
