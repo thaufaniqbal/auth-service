@@ -43,6 +43,13 @@ public class RoleFunctionServiceImpl implements RoleFunctionService {
     }
 
     @Override
+    public Object build(RoleFunctionCreateInput input, UUID roleFunctionId, String loginId) {
+        RoleFunction roleFunction = buildRoleFunction(input, roleFunctionId, loginId);
+        buildRoleFunction(roleFunction);
+        return roleFunction;
+    }
+
+    @Override
     @Transactional
     public void buildRoleFunction(RoleFunction roleFunction) {
         functionRepository.save(roleFunction);

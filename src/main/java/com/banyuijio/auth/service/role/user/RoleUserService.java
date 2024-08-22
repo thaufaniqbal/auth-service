@@ -6,6 +6,7 @@ import com.banyuijio.auth.entity.RoleUser;
 import java.util.UUID;
 
 public interface RoleUserService {
-    RoleUser createRoleUser(RoleUserCreateInput input, UUID roleId, String loginId);
-    void createRoleUser(RoleUser roleUser);
+    RoleUser buildRoleUser(RoleUserCreateInput input, UUID roleId, String loginId);
+    Object build(RoleUserCreateInput input, UUID roleId, String loginId);
+    void buildRoleUser(RoleUser roleUser);
 }

@@ -17,7 +17,7 @@ public class RoleUserServiceImpl implements RoleUserService {
     private final RoleUserRepository roleUserRepository;
     private final RoleValidator roleValidator;
     @Override
-    public RoleUser createRoleUser(RoleUserCreateInput input, UUID roleId, String loginId) {
+    public RoleUser buildRoleUser(RoleUserCreateInput input, UUID roleId, String loginId) {
         roleValidator.validate(input);
         roleValidator.validateFunctionAndUsersUpdate(input.getRoleFunctionId(), loginId);
         RoleUser result = new RoleUser();
@@ -36,8 +36,15 @@ public class RoleUserServiceImpl implements RoleUserService {
     }
 
     @Override
+    public Object build(RoleUserCreateInput input, UUID roleId, String loginId) {
+        RoleUser roleFunction = buildRoleUser(input, roleId, loginId);
+        buildRoleUser(roleFunction);
+        return roleFunction;
+    }
+
+    @Override
     @Transactional
-    public void createRoleUser(RoleUser roleUser) {
+    public void buildRoleUser(RoleUser roleUser) {
         roleUserRepository.save(roleUser);
     }
 }
