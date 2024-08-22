@@ -31,4 +31,18 @@ public class GlobalValidator {
             throw new HttpStatusException(HttpStatusCode.MISSING_MANDATORY_PROPERTY, property);
         }
     }
+    public void validateIntegerRequest(Integer value, String property) {
+        if (value == null) {
+            throw new HttpStatusException(HttpStatusCode.MISSING_MANDATORY_PROPERTY, property);
+        }
+    }
+    public void validateIntegerRequest(Integer value, Integer minValue, Integer maxValue, String property) {
+        validateIntegerRequest(value, property);
+        if (value < minValue || value > maxValue) {
+            throw new HttpStatusException(
+                    value < minValue ? HttpStatusCode.MINIMUM_LENGTH_EXCEEDED : HttpStatusCode.MAXIMUM_LENGTH_EXCEEDED,
+                    property,
+                    value < minValue ? minValue : maxValue);
+        }
+    }
 }

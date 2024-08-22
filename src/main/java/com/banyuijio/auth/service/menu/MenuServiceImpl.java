@@ -117,6 +117,7 @@ public class MenuServiceImpl implements MenuService {
             setCreate(menuOutputs, create);
             setEdit(menuOutputs, edit);
             setDelete(menuOutputs, delete);
+            setSuperUser(menuOutputs, superUser);
         }
     }
     private void setRead(List<MenuOutput> menuOutputs, boolean read) {
@@ -133,6 +134,9 @@ public class MenuServiceImpl implements MenuService {
 
     private void setDelete(List<MenuOutput> menuOutputs, boolean delete) {
         setCrudPermission(menuOutputs, delete, CrudTypeCode.DELETE.getCode());
+    }
+    private void setSuperUser(List<MenuOutput> menuOutputs, boolean delete) {
+        setCrudPermission(menuOutputs, delete, CrudTypeCode.SUPERUSER.getCode());
     }
     private void setCrudPermission(List<MenuOutput> menuOutputs, boolean isEnabled, int crudType) {
         if (isEnabled) {

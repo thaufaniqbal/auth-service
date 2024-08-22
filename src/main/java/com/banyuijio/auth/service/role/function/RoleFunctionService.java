@@ -1,7 +1,11 @@
 package com.banyuijio.auth.service.role.function;
 
+import com.banyuijio.auth.dto.role.function.RoleFunctionCreateInput;
 import com.banyuijio.auth.entity.RoleFunction;
 
+import java.util.UUID;
+
 public interface RoleFunctionService {
-    void createRoleFunction (RoleFunction roleFunction);
+    RoleFunction buildRoleFunction(RoleFunctionCreateInput input, UUID roleFunctionId, String loginId);
+    void buildRoleFunction(RoleFunction roleFunction);
 }

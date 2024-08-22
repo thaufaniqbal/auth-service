@@ -7,4 +7,5 @@ import java.util.UUID;
 
 public interface RoleFunctionRepository extends JpaRepository<RoleFunction, UUID> {
     RoleFunction findByRoleFunctionId(UUID roleFunctionId);
+    boolean existsByRoleFunctionNameIgnoreCase(String roleFunctionName);
 }

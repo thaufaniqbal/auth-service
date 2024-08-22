@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface UserInternalRepository extends JpaRepository<UserInternal, UUID> {
 
     UserInternal findByUserId(UUID userId);
-    UserInternal findByUsername(String userName);
+    UserInternal findByUsernameIgnoreCase(String userName);
     boolean existsByUsernameIgnoreCase(String userName);
 
 }

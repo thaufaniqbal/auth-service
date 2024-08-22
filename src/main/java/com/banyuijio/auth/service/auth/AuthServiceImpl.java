@@ -17,7 +17,7 @@ public class AuthServiceImpl implements AuthService {
     public UserInternalLoginOutput loginInternal(UserInternalLoginInput input) {
         UserInternalLoginOutput output = new UserInternalLoginOutput();
         userValidator.validateLogin(input.getUsername());
-        UserInternal user = userInternalRepository.findByUsername(input.getUsername());
+        UserInternal user = userInternalRepository.findByUsernameIgnoreCase(input.getUsername());
         if (user.getPassword().equalsIgnoreCase(input.getPassword())){
             output.setUserId(user.getUserId());
             output.setLoginId(user.getUsername());

@@ -4,11 +4,11 @@ import com.banyuijio.auth.enums.HttpStatusCode;
 import com.banyuijio.auth.exception.HttpStatusException;
 import com.banyuijio.auth.repository.UserInternalRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class UserValidator {
     private final UserInternalRepository userInternalRepository;

@@ -9,7 +9,8 @@ public enum CrudTypeCode {
     READ(0, "read"),
     CREATE(1, "create"),
     EDIT(2, "read"),
-    DELETE(3, "update");
+    DELETE(3, "update"),
+    SUPERUSER(4, "superuser");
     private final int code;
     private final String description;
 }

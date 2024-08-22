@@ -14,7 +14,8 @@ public enum HttpStatusCode {
     MINIMUM_LENGTH_EXCEEDED (200005, HttpStatus.BAD_REQUEST, true, "Minimum length for property %s is %s"),
     DATA_ALREADY_EXIST (200006, HttpStatus.BAD_REQUEST, true, "Data Already Exist for %s"),
     INVALID_DATA_INPUT (200007, HttpStatus.BAD_REQUEST, true, "Invalid data input for %s"),
-    DATA_NOT_FOUND_FOR (200008, HttpStatus.BAD_REQUEST, true, "Data Not Found for %s");
+    DATA_NOT_FOUND_FOR (200008, HttpStatus.BAD_REQUEST, true, "Data Not Found for %s"),
+    INVALID_USER (200009, HttpStatus.UNAUTHORIZED, true, "This user : %s , not a superuser");
 
     private final int code;
     private final HttpStatus status;
