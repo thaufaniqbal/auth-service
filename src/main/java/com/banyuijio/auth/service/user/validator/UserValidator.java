@@ -36,12 +36,12 @@ public class UserValidator {
         }
     }
     public void validateUserGroupName(String userGroupName){
-        if (userGroupRepository.exitsByUserGroupNameIgnoreCase(userGroupName)){
+        if (userGroupRepository.existsByUserGroupNameIgnoreCase(userGroupName)){
             throw new HttpStatusException(HttpStatusCode.DATA_ALREADY_EXIST, "userGroupName: "+ userGroupName);
         }
     }
     public void validateUserGroupId(UUID userGroupId){
-        if (userGroupRepository.exitsByUserGroupId(userGroupId)){
+        if (userGroupRepository.existsByUserGroupId(userGroupId)){
             throw new HttpStatusException(HttpStatusCode.DATA_NOT_FOUND_FOR, "userGroup: "+ userGroupId);
         }
     }

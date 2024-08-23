@@ -7,6 +7,6 @@ import java.util.UUID;
 
 public interface UserGroupRepository extends JpaRepository<UserGroup, UUID> {
     UserGroup findByUserGroupId(UUID userGroupId);
-    boolean exitsByUserGroupNameIgnoreCase (String userGroupName);
-    boolean exitsByUserGroupId (UUID userGroupId);
+    boolean existsByUserGroupNameIgnoreCase(String userGroupName);
+    boolean existsByUserGroupId(UUID userGroupId);
 }
