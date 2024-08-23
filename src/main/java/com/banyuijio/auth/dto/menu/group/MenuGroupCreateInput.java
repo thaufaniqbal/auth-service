@@ -13,6 +13,5 @@ import java.util.UUID;
 @Setter
 @Getter
 public class MenuGroupCreateInput {
-    private UUID userGroupId;
     private List<UUID> menuIds;
 }

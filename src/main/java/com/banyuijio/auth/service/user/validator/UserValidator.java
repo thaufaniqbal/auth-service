@@ -40,4 +40,9 @@ public class UserValidator {
             throw new HttpStatusException(HttpStatusCode.DATA_ALREADY_EXIST, "userGroupName: "+ userGroupName);
         }
     }
+    public void validateUserGroupId(UUID userGroupId){
+        if (userGroupRepository.exitsByUserGroupId(userGroupId)){
+            throw new HttpStatusException(HttpStatusCode.DATA_NOT_FOUND_FOR, "userGroup: "+ userGroupId);
+        }
+    }
 }

@@ -21,6 +21,7 @@ public class UserGroupServiceImpl implements UserGroupService {
     private final RoleValidator roleValidator;
     @Override
     public UserGroup buildUserGroup(UserGroupCreateInput input, UUID userGroupId, String loginId) {
+        userValidator.validateLogin(loginId);
         UserGroup result = new UserGroup();
         roleValidator.validateRoleId(input.getRoleUserId());
         if (Objects.nonNull(userGroupId)){
