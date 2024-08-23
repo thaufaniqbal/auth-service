@@ -17,11 +17,10 @@ import com.banyuijio.auth.service.user.validator.UserValidator;
 import com.banyuijio.auth.util.GlobalValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-@Service
+@Component
 @RequiredArgsConstructor
 public class RoleValidator extends GlobalValidator {
     private final UserInternalRepository userInternalRepository;

@@ -6,7 +6,6 @@ import com.banyuijio.auth.enums.BooleanStatus;
 import com.banyuijio.auth.enums.CrudTypeCode;
 import com.banyuijio.auth.repository.*;
 import com.banyuijio.auth.service.user.validator.UserValidator;
-import com.banyuijio.auth.util.GlobalValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +24,9 @@ public class MenuServiceImpl implements MenuService {
     private final MenuGroupMappingRepository menuGroupMappingRepository;
     private final RoleUserRepository roleUserRepository;
     private final RoleFunctionRepository roleFunctionRepository;
-    private final GlobalValidator validator;
     private final UserValidator userValidator;
     @Override
     public List<MenuOutput> getMenuUserInternal(UUID userId) {
-        validator.validateRequestMandatory(userId, "userId");
         userValidator.validateUserInternalId(userId);
         UserInternal user = userInternalRepository.findByUserId(userId);
         UserGroup userGroup = userGroupRepository.findByUserGroupId(user.getUserGroupId());
